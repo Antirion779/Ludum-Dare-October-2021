@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         playerPosition = this.transform;
 
         //Set Pos default player
-        playerPosition.position = PlateauManager.plateau[0, 0];
+        playerPosition.position = PlateauManager.plateau[GameManager.positionPlayerX, GameManager.positionPlayerY];
         playerPositionX = playerPosition.position.x;
         playerPositionY = playerPosition.position.y;
     }
