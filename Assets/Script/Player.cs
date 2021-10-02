@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY + 1];
                 playerPositionY++;
+                playerPosition.eulerAngles = new Vector3(0, 0, 90);
             }
         }
         else if (Input.GetKeyDown(keyDown))
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY - 1];
                 playerPositionY--;
+                playerPosition.eulerAngles = new Vector3(0, 0, -90);
             }
         }
         else if (Input.GetKeyDown(keyLeft))
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX - 1, (int)playerPositionY];
                 playerPositionX--;
+                playerPosition.rotation = new Quaternion(0, 0, 180, 0);
             }
         }
         else if (Input.GetKeyDown(keyRight))
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
+                playerPosition.rotation = new Quaternion(0, 0, 0, 0);
             }
         }
     }
