@@ -1,42 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     Transform playerPosition;
-    Vector2[,] plateau = new Vector2[5,5];
+    float playerPositionX;
+    float playerPositionY;
+    Vector2[,] plateau = new Vector2[GameManager.taillePlateau, GameManager.taillePlateau];
+
+    KeyCode keyUp = KeyCode.Z;
+    KeyCode keyDown = KeyCode.S;
+    KeyCode keyRight = KeyCode.D;
+    KeyCode keyLeft = KeyCode.Q;
+    [SerializeField]
+    Text textButtonKeyboard;
 
     private void Start()
     {
         playerPosition = this.transform;
-        for (int i = 0; i < 5; i++)
+
+        //Intégration de chaque coord dans chaque partie du tableau
+        for (int i = 0; i < GameManager.taillePlateau; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < GameManager.taillePlateau; j++)
             {
                 plateau[i, j] = new Vector2(i,j);
             }
         }
+
+        //Set Pos default player
         playerPosition.position = plateau[0, 0];
+        playerPositionX = playerPosition.position.x;
+        playerPositionY = playerPosition.position.y;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(keyUp))
         {
-            playerPosition.position = new Vector2(playerPosition.position.x, playerPosition.position.y + 1);
+            if (playerPositionY != GameManager.taillePlateau - 1)
+            {
+                playerPosition.position = plateau[(int)playerPositionX, (int)playerPositionY + 1];
+                playerPositionY++;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(keyDown))
         {
-            playerPosition.position = new Vector2(playerPosition.position.x, playerPosition.position.y - 1);
+            if (playerPositionY != 0)
+            {
+                playerPosition.position = plateau[(int)playerPositionX, (int)playerPositionY - 1];
+                playerPositionY--;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(keyLeft))
         {
-            playerPosition.position = new Vector2(playerPosition.position.x - 1, playerPosition.position.y);
+            if (playerPositionX != 0)
+            {
+                playerPosition.position = plateau[(int)playerPositionX - 1, (int)playerPositionY];
+                playerPositionX--;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(keyRight))
         {
-            playerPosition.position = new Vector2(playerPosition.position.x + 1, playerPosition.position.y);
+            if(playerPositionX != GameManager.taillePlateau - 1)
+            {
+                playerPosition.position = plateau[(int)playerPositionX + 1, (int)playerPositionY];
+                playerPositionX++;
+            }
+        }
+    }
+
+    public void SwitchAzertyQuerty()
+    {
+        if(keyUp == KeyCode.W)
+        {
+            textButtonKeyboard.text = "Azerty";
+            keyUp = KeyCode.Z;
+            keyLeft = KeyCode.Q;
+        }
+        else if(keyUp == KeyCode.Z)
+        {
+            textButtonKeyboard.text = "Querty";
+            keyUp = KeyCode.W;
+            keyLeft = KeyCode.A;
         }
     }
 }
