@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     Transform playerPosition;
     float playerPositionX;
     float playerPositionY;
-    Vector2[,] plateau = new Vector2[GameManager.taillePlateau, GameManager.taillePlateau];
+    
 
     KeyCode keyUp = KeyCode.Z;
     KeyCode keyDown = KeyCode.S;
@@ -21,17 +21,8 @@ public class Player : MonoBehaviour
     {
         playerPosition = this.transform;
 
-        //Intégration de chaque coord dans chaque partie du tableau
-        for (int i = 0; i < GameManager.taillePlateau; i++)
-        {
-            for (int j = 0; j < GameManager.taillePlateau; j++)
-            {
-                plateau[i, j] = new Vector2(i,j);
-            }
-        }
-
         //Set Pos default player
-        playerPosition.position = plateau[0, 0];
+        playerPosition.position = PlateauManager.plateau[0, 0];
         playerPositionX = playerPosition.position.x;
         playerPositionY = playerPosition.position.y;
     }
@@ -42,7 +33,7 @@ public class Player : MonoBehaviour
         {
             if (playerPositionY != GameManager.taillePlateau - 1)
             {
-                playerPosition.position = plateau[(int)playerPositionX, (int)playerPositionY + 1];
+                playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY + 1];
                 playerPositionY++;
             }
         }
@@ -50,7 +41,7 @@ public class Player : MonoBehaviour
         {
             if (playerPositionY != 0)
             {
-                playerPosition.position = plateau[(int)playerPositionX, (int)playerPositionY - 1];
+                playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY - 1];
                 playerPositionY--;
             }
         }
@@ -58,7 +49,7 @@ public class Player : MonoBehaviour
         {
             if (playerPositionX != 0)
             {
-                playerPosition.position = plateau[(int)playerPositionX - 1, (int)playerPositionY];
+                playerPosition.position = PlateauManager.plateau[(int)playerPositionX - 1, (int)playerPositionY];
                 playerPositionX--;
             }
         }
@@ -66,7 +57,7 @@ public class Player : MonoBehaviour
         {
             if(playerPositionX != GameManager.taillePlateau - 1)
             {
-                playerPosition.position = plateau[(int)playerPositionX + 1, (int)playerPositionY];
+                playerPosition.position = PlateauManager.plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
             }
         }
