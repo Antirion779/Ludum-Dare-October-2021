@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     Transform playerPosition;
     float playerPositionX;
     float playerPositionY;
-    Vector2[,] plateau = new Vector2[5,5];
+    Vector2[,] plateau = new Vector2[GameManager.taillePlateau, GameManager.taillePlateau];
 
     KeyCode keyUp = KeyCode.Z;
     KeyCode keyDown = KeyCode.S;
@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
         playerPosition = this.transform;
 
         //Intégration de chaque coord dans chaque partie du tableau
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < GameManager.taillePlateau; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < GameManager.taillePlateau; j++)
             {
                 plateau[i, j] = new Vector2(i,j);
             }
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(keyUp))
         {
-            if (playerPositionY != 4)
+            if (playerPositionY != GameManager.taillePlateau - 1)
             {
                 playerPosition.position = plateau[(int)playerPositionX, (int)playerPositionY + 1];
                 playerPositionY++;
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(keyRight))
         {
-            if(playerPositionX != 4)
+            if(playerPositionX != GameManager.taillePlateau - 1)
             {
                 playerPosition.position = plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
