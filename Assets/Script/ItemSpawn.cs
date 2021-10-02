@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mime;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +9,10 @@ public class ItemSpawn : MonoBehaviour
     [SerializeField] private GameObject item;
 
     [Header("Variables")]
-    [SerializeField] private Text numberOfItem;
-    private int currentItemPickUp = 0;
+    [SerializeField] private Text numberOfItemText;
+
+    private int numberOfItem;
+    public int currentItemPickedUp = 0;
 
     private void Start()
     {
@@ -26,8 +26,7 @@ public class ItemSpawn : MonoBehaviour
 
     private void Update()
     {
-        numberOfItem.text = currentItemPickUp + " / " + numberOfItem;
-
+        numberOfItemText.text = currentItemPickedUp + " / " + numberOfItem;
     }
 
     public void SpawnAnItem()
@@ -38,8 +37,8 @@ public class ItemSpawn : MonoBehaviour
         Vector3 pos = new Vector3(x, y, 0);
 
         Instantiate(item, pos, Quaternion.identity);
-
-        //numberOfItem++;
+        
+        numberOfItem++;
     }
 
 }
