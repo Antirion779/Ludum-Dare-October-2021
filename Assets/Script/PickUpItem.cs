@@ -10,7 +10,7 @@ public class PickUpItem : MonoBehaviour
     {
         if (col.gameObject.tag == "Item")
         {
-            Debug.Log("+1");
+            //Debug.Log("+1");
             currentItemPickedUp.GetComponent<ItemSpawn>().currentItemPickedUp++;
             Destroy(col.gameObject);
         }
