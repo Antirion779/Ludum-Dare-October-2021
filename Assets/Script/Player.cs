@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
                 plateau[i, j] = new Vector2(i,j);
             }
         }
+        playerPosition.position = plateau[0, 0];
     }
 
     void Update()
