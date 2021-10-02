@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class Player : MonoBehaviour
     float playerPositionX;
     float playerPositionY;
     Vector2[,] plateau = new Vector2[5,5];
+
+    KeyCode keyUp = KeyCode.Z;
+    KeyCode keyDown = KeyCode.S;
+    KeyCode keyRight = KeyCode.D;
+    KeyCode keyLeft = KeyCode.Q;
+    [SerializeField]
+    Text textButtonKeyboard;
 
     private void Start()
     {
@@ -30,7 +38,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(keyUp))
         {
             if (playerPositionY != 4)
             {
@@ -38,7 +46,7 @@ public class Player : MonoBehaviour
                 playerPositionY++;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(keyDown))
         {
             if (playerPositionY != 0)
             {
@@ -46,7 +54,7 @@ public class Player : MonoBehaviour
                 playerPositionY--;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(keyLeft))
         {
             if (playerPositionX != 0)
             {
@@ -54,13 +62,29 @@ public class Player : MonoBehaviour
                 playerPositionX--;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(keyRight))
         {
             if(playerPositionX != 4)
             {
                 playerPosition.position = plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
             }
+        }
+    }
+
+    public void SwitchAzertyQuerty()
+    {
+        if(keyUp == KeyCode.W)
+        {
+            textButtonKeyboard.text = "Azerty";
+            keyUp = KeyCode.Z;
+            keyLeft = KeyCode.Q;
+        }
+        else if(keyUp == KeyCode.Z)
+        {
+            textButtonKeyboard.text = "Querty";
+            keyUp = KeyCode.W;
+            keyLeft = KeyCode.A;
         }
     }
 }
