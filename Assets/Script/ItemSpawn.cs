@@ -7,6 +7,7 @@ public class ItemSpawn : MonoBehaviour
 {
     [Header("Compnent")]
     [SerializeField] private GameObject item;
+    [SerializeField] private GameObject player;
 
     [Header("Variables")]
     [SerializeField] private Text numberOfItemText;
@@ -16,12 +17,7 @@ public class ItemSpawn : MonoBehaviour
 
     private void Start()
     {
-        int spawn = Random.Range(3, 5);
-
-        for (int i = 0; i < spawn; i++)
-        {
-            SpawnAnItem();
-        }
+        SpawnAnItem();
     }
 
     private void Update()
@@ -31,14 +27,29 @@ public class ItemSpawn : MonoBehaviour
 
     public void SpawnAnItem()
     {
-        int x = Random.Range(0, GameManager.taillePlateau);
-        int y = Random.Range(0, GameManager.taillePlateau);
+        int spawn = Random.Range(3, 6);
+        for (int i = 0; i < spawn; i++)
+        {
+            int x = Random.Range(0, GameManager.taillePlateau);
+            int y = Random.Range(0, GameManager.taillePlateau);
 
-        Vector3 pos = new Vector3(x, y, 0);
+            Vector3 pos = new Vector3(x, y, 0);
 
-        Instantiate(item, pos, Quaternion.identity);
+            if (PlateauManager.itemInPlateau[x, y] == false && pos != player.transform.position)
+            {
+                Instantiate(item, pos, Quaternion.identity);
+                PlateauManager.itemInPlateau[x, y] = true;
+                numberOfItem++;
+            }
         
-        numberOfItem++;
+            else
+            {
+                i--;
+            }
+
+            Debug.Log(i);
+        }
+
     }
 
 }
