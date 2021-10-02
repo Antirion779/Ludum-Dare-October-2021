@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestSystemSpawn : MonoBehaviour
+public class TableauAtoBSystem : MonoBehaviour
 {
-    public static TestSystemSpawn instance;
+    public static TableauAtoBSystem instance;
 
     [Header("Component")]
     [SerializeField] private GameObject item;
@@ -19,12 +19,20 @@ public class TestSystemSpawn : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        Instantiate(itemFinish, new Vector3(GameManager.taillePlateau - 1, GameManager.taillePlateau - 1, 0), Quaternion.identity);
         ActivateGame();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            ActivateGame();
+        }
     }
 
     private void ActivateGame()
     {
+        Instantiate(itemFinish, new Vector3(GameManager.taillePlateau - 1, GameManager.taillePlateau - 1, 0), Quaternion.identity);
         for (int i = 0; i < 100; i++)
         {
             SpawnAnItem();
@@ -75,5 +83,7 @@ public class TestSystemSpawn : MonoBehaviour
         {
             Destroy(voidcase);
         }
+
+        PlateauManager.ResetMap();
     }
 }

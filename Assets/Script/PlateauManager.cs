@@ -19,7 +19,7 @@ public class PlateauManager : MonoBehaviour
         }
     }
 
-    public void ResetMap()
+    public static void ResetMap()
     {
         for (int i = 0; i < GameManager.taillePlateau; i++)
         {
