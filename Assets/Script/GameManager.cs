@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
             TableauAtoBSystem.instance.ResetPlateau();
             EnemySpawnManager.instance.ResetEnemy();
             EnemySpawnManager.instance.killEnemyObjectif = false;
+            EnemySpawnManager.instance.ResetBullet();
+            EnemySpawnManager.instance.ResetEnemyBall();
 
             chrono = memoryChrono;
 
