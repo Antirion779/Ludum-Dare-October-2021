@@ -81,4 +81,22 @@ public class Player : MonoBehaviour
             keyLeft = KeyCode.A;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            GameObject Enemybahhhh = GameObject.FindGameObjectWithTag("Enemy");
+            Destroy(Enemybahhhh);
+            //LOAD LA SCENE DE MORT DU PERSONNAGE
+        }
+        if (collision.CompareTag("EnemyBall"))
+        {
+            Destroy(gameObject);
+            GameObject Enemybahhhh = GameObject.FindGameObjectWithTag("Enemy");
+            Destroy(Enemybahhhh);
+            //LOAD LA SCENE DE MORT DU PERSONNAGE
+        }
+    }
+
 }

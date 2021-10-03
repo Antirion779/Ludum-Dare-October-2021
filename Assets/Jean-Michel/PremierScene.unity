@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3345d60471fbb4d985f988e6a5628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textButtonKeyboard: {fileID: 0}
 --- !u!212 &134811043
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -318,71 +319,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2110194776}
   bulletPrefab: {fileID: 789876967247967277, guid: 2ac00425b3207414683cdf1f743cc1cb, type: 3}
---- !u!1001 &579806810
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3565702642737128104, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_Name
-      value: ImpactEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.08516452
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.19857875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128109, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128111, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565702642737128111, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 53fe60a4e321f774299efa575f721c8c, type: 3}
 --- !u!1 &1832586380
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  deathEffect: {fileID: 0}
 --- !u!70 &1965342516
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
