@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             gameIsOn = true;
             PlateauManager.ResetMap();
-            int tableau = Random.Range(0, 3);
+            int tableau = Random.Range(2, 3);
             Debug.Log("RANDOM =" + tableau);
 
             Vector3 pos = new Vector3(0, 0, 0);
