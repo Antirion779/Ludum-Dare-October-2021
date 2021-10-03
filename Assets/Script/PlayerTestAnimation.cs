@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class PlayerTestAnimation : MonoBehaviour
 {
     Transform playerPosition;
     public float playerPositionX;
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(keyRight))
         {
-            if (playerPositionX != GameManager.taillePlateau - 1)
+            if(playerPositionX != GameManager.taillePlateau - 1)
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
@@ -94,13 +94,13 @@ public class Player : MonoBehaviour
 
     public void SwitchAzertyQuerty()
     {
-        if (keyUp == KeyCode.W)
+        if(keyUp == KeyCode.W)
         {
             textButtonKeyboard.text = "Azerty";
             keyUp = KeyCode.Z;
             keyLeft = KeyCode.Q;
         }
-        else if (keyUp == KeyCode.Z)
+        else if(keyUp == KeyCode.Z)
         {
             textButtonKeyboard.text = "Querty";
             keyUp = KeyCode.W;
