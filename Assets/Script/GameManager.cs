@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private int memoryChrono;
     private bool nextSecond;
 
+    [SerializeField] private Text objectifText;
+
     public static int score;
 
     public bool gameIsOn;
@@ -73,66 +75,72 @@ public class GameManager : MonoBehaviour
 
             chrono = memoryChrono;
 
-            int tableau = Random.Range(0, 3);
+            int tableau = Random.Range(0, 4);
             int modifier1 = 100;
             int modifier2 = 200;
+
             if (score > 15)
             {
-                modifier1 = Random.Range(0, 3);
+                modifier1 = Random.Range(0, 4);
                 while (modifier1 == tableau)
                 {
-                    modifier1 = Random.Range(0, 3);
+                    modifier1 = Random.Range(0, 4);
                 }
 
-                Debug.Log("Tableau : " + tableau + " ; " + "Modifier : " + modifier1);
             }
 
             if (score > 30)
             {
+                modifier2 = Random.Range(0, 4);
                 while (modifier2 == tableau || modifier2 == modifier1)
                 {
                     modifier2 = Random.Range(0, 3);
                 }
             }
-            int tableau = Random.Range(0, 4);
             //Debug.Log("RANDOM =" + tableau);
 
             player.transform.position = PlateauManager.plateau[positionPlayerX, positionPlayerY];
             player.GetComponent<Player>().playerPositionX = positionPlayerX;
             player.GetComponent<Player>().playerPositionY = positionPlayerY;
 
+            Debug.Log("Tableau : " + tableau + " ; " + "Modifier1 : " + modifier1 + " ; " + "Modifier2 : " + modifier2);
+
             //Debug.Log("score : " + score);
-            if (tableau == 0 || modifier1 == 0)//trou
+            if (tableau == 0 || modifier1 == 0 || modifier2 == 0)//trou
             {
                  TableauAtoBSystem.instance.ActivateGame();
                  if (tableau == 0)
                  {
                      TableauAtoBSystem.instance.ActiveVictory();
-                     Debug.Log("Victoire : trou");
+                     objectifText.text = "Reach the flag";
                  }
             }
-            if (tableau == 1 || modifier1 == 1)//bouteille
+            if (tableau == 1 || modifier1 == 1 || modifier2 == 1)//bouteille
             {
                  ItemSpawn.instance.SpawnAnItem();
                  if (tableau == 1)
                  {
                      ItemSpawn.instance.tableauIsOn = true;
-                     Debug.Log("Victoire : bouteille");
+                    objectifText.text = "Collect all the bottles";
                  }
             }
-            if (tableau == 2 || modifier1 == 2)//Enemie
+            if (tableau == 2 || modifier1 == 2 || modifier2 == 2)//Enemie
             {
                  EnemySpawnManager.instance.SpawnEnemy();
                  if (tableau == 2)
                  {
                      EnemySpawnManager.instance.killEnemyObjectif = true;
-                     Debug.Log("Victoire : Kill");
+                    objectifText.text = "Kill the enemies";
                  }
             }
-            else if(tableau == 3)
+            if(tableau == 3 || modifier1 == 3 || modifier2 == 3)//fall thing
             {
                 FallGameManager.instance.SpawnGoodCase();
-                FallGameManager.instance.isVictory = true;
+                if (tableau == 3)
+                {
+                    FallGameManager.instance.isVictory = true;
+                    objectifText.text = "Survive";
+                }
             }
         }
     }

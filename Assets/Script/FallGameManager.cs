@@ -31,7 +31,7 @@ public class FallGameManager : MonoBehaviour
     {
         if (nextSecond && chrono > 0)
         {
-            Debug.Log("patate");
+            //Debug.Log("patate");
             StartCoroutine(WaitForTimer());
         }
 
