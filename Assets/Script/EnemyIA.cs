@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
+
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+
+
+
+
     [Header("Component")] 
     [SerializeField] private GameObject player;
 
@@ -15,6 +24,11 @@ public class EnemyIA : MonoBehaviour
     {
        StartCoroutine(WaitAction(GameManager.tempsDeReaction));
         player = GameObject.FindGameObjectWithTag("Player");
+
+
+        
+
+
     }
 
     IEnumerator WaitAction(float a)
@@ -33,6 +47,7 @@ public class EnemyIA : MonoBehaviour
 
         if (isInLine)
         {
+            tournerlatetehehe();
             Shoot();
         }
         else
@@ -43,11 +58,13 @@ public class EnemyIA : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("RATRATATA");
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         isInLine = false;
         StartCoroutine(WaitAction(GameManager.tempsDeReaction));
     }
+
+   
 
     private void MoveToPlayer()
     {
@@ -65,7 +82,12 @@ public class EnemyIA : MonoBehaviour
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y + 1];
                     Debug.Log("UP");
+                    
+                    
+                    transform.eulerAngles = new Vector3(0, 0, 90);
+
                 }
+                
             }
             else //Le baisse d'une case
             {
@@ -73,7 +95,12 @@ public class EnemyIA : MonoBehaviour
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y - 1];
                     Debug.Log("Down");
+                    
+                    
+                    transform.eulerAngles = new Vector3(0, 0, -90);
+
                 }
+                
             }
         }
 
@@ -85,7 +112,11 @@ public class EnemyIA : MonoBehaviour
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x +1, (int)transform.position.y];
                     Debug.Log("Droite");
+                    
+                    
+                    transform.rotation = new Quaternion(0, 0, 0, 0);
                 }
+                
             }
 
             else//Gauche d'une case
@@ -94,10 +125,33 @@ public class EnemyIA : MonoBehaviour
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x - 1, (int)transform.position.y];
                     Debug.Log("Gauche");
+                    
+                    
+                    transform.rotation = new Quaternion(0, 0, 180, 0);
                 }
+                
             }
         }
 
         StartCoroutine(WaitAction(GameManager.tempsDeReaction));
+    }
+    private void tournerlatetehehe()
+    {
+        if (player.transform.position.x - transform.position.x < 0)
+        {
+            transform.rotation = new Quaternion(0, 0, 180, 0);
+        }
+        else if (player.transform.position.x - transform.position.x > 0)
+        {
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+        else if (player.transform.position.y - transform.position.y < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, -90);
+        }
+        else if (player.transform.position.y - transform.position.y > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        }
     }
 }

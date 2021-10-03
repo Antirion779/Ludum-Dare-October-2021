@@ -7,6 +7,7 @@ TagManager:
   - Item
   - FallCase
   - Enemy
+  - EnemyBall
   layers:
   - Default
   - TransparentFX
