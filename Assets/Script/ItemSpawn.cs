@@ -58,7 +58,7 @@ public class ItemSpawn : MonoBehaviour
                 i--;
             }
 
-            Debug.Log(i);
+            //Debug.Log(i);
         }
 
         tableauIsOn = true;

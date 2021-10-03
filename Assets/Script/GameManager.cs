@@ -20,7 +20,15 @@ public class GameManager : MonoBehaviour
     GameObject enemy;
 
     [SerializeField]
+    Text chronoText;
+    [SerializeField]
     GameObject panelGameOver;
+
+    [Header("Variable")]
+    [SerializeField] 
+    private int chrono;
+    private int memoryChrono;
+    private bool nextSecond;
 
     public bool gameIsOn;
 
@@ -28,6 +36,8 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        memoryChrono = chrono;
     }
 
     public void GameOver()
@@ -37,12 +47,25 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        chronoText.text = chrono.ToString();
+        
+        if(!nextSecond)
+            StartCoroutine(WaitForTimer());
+        
+        if(chrono == 0)
+        {
+            GameOver();
+            Destroy(player);
+        }
+
         if (!gameIsOn)
         {
             gameIsOn = true;
             PlateauManager.ResetMap();
+            chrono = memoryChrono;
+
             int tableau = Random.Range(0, 3);
-            Debug.Log("RANDOM =" + tableau);
+            //Debug.Log("RANDOM =" + tableau);
 
             Vector3 pos = new Vector3(0, 0, 0);
             int x = 0;
@@ -70,6 +93,17 @@ public class GameManager : MonoBehaviour
                 }
                 Instantiate(enemy, pos, Quaternion.identity);
             }
+        }
+    }
+
+    private IEnumerator WaitForTimer()
+    {
+        if(chrono != 0)
+        {
+            nextSecond = true;
+            yield return new WaitForSeconds(1f);
+            chrono--;
+            nextSecond = false;
         }
     }
 }
