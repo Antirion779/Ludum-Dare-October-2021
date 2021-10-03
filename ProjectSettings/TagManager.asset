@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyBall
   - Cross
+  - Bullet
   layers:
   - Default
   - TransparentFX

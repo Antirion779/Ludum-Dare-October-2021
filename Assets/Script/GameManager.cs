@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             ItemSpawn.instance.ResetBottle();
             TableauAtoBSystem.instance.ResetPlateau();
             EnemySpawnManager.instance.ResetEnemy();
+            EnemySpawnManager.instance.ResetBullet();
             EnemySpawnManager.instance.killEnemyObjectif = false;
             FallGameManager.instance.isVictory = false;
 

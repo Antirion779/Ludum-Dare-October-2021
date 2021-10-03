@@ -12,6 +12,8 @@ public class EnemySpawnManager : MonoBehaviour
     public bool killEnemyObjectif;
 
     private GameObject[] enemyInGame;
+    private GameObject[] bulletInGame;
+    private GameObject[] enemyBulletInGame;
 
     private void Start()
     {
@@ -49,6 +51,21 @@ public class EnemySpawnManager : MonoBehaviour
         foreach (GameObject enemy in enemyInGame)
         {
             Destroy(enemy);
+        }
+    }
+
+    public void ResetBullet()
+    {
+        enemyBulletInGame = GameObject.FindGameObjectsWithTag("EnemyBall");
+        foreach (GameObject enemyBullet in enemyBulletInGame)
+        {
+            Destroy(enemyBullet);
+        }
+
+        bulletInGame = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bulletInGame)
+        {
+            Destroy(bullet);
         }
     }
 }
