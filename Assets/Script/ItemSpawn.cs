@@ -16,7 +16,9 @@ public class ItemSpawn : MonoBehaviour
 
     private int numberOfItem;
     public int currentItemPickedUp = 0;
-    private bool tableauIsOn;
+    public bool tableauIsOn;
+
+    private GameObject[] bottle;
 
     private void Start()
     {
@@ -60,9 +62,14 @@ public class ItemSpawn : MonoBehaviour
 
             //Debug.Log(i);
         }
-
-        tableauIsOn = true;
-
     }
 
+    public void ResetBottle()
+    {
+        bottle = GameObject.FindGameObjectsWithTag("Item");
+        foreach (GameObject item in bottle)
+        {
+            Destroy(item);
+        }
+    }
 }

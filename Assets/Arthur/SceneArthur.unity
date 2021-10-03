@@ -530,11 +530,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 134811041}
-  enemy: {fileID: 2027371199324837086, guid: 56bec71833f322c41aee8de1d9e472f4, type: 3}
   chronoText: {fileID: 2137943158}
   panelGameOver: {fileID: 1831781477}
   chrono: 20
   gameIsOn: 0
+--- !u!1 &487743990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487743991}
+  - component: {fileID: 487743992}
+  m_Layer: 0
+  m_Name: EnemySpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &487743991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487743990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 549887672}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487743992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487743990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918960a2448f32045bb4618e76557207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 2027371199324837086, guid: 56bec71833f322c41aee8de1d9e472f4, type: 3}
+  killEnemyObjectif: 0
 --- !u!1 &549887671
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +610,7 @@ Transform:
   - {fileID: 1717439165}
   - {fileID: 153134073}
   - {fileID: 1540584147}
+  - {fileID: 487743991}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -857,6 +902,7 @@ MonoBehaviour:
   item: {fileID: 264682805510880872, guid: cb1533df54fd24548b0d00e48443bae2, type: 3}
   player: {fileID: 134811041}
   currentItemPickedUp: 0
+  tableauIsOn: 0
 --- !u!1 &1545856950
 GameObject:
   m_ObjectHideFlags: 0

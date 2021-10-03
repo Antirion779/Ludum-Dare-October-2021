@@ -9,7 +9,6 @@ public class VoidCase : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            TableauAtoBSystem.instance.ResetPlateau();
             GameManager.instance.GameOver();
         }
     }

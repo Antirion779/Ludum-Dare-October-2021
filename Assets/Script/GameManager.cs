@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject player;
-    [SerializeField]
-    GameObject enemy;
 
     [SerializeField]
     Text chronoText;
@@ -51,7 +49,12 @@ public class GameManager : MonoBehaviour
         
         if(!nextSecond)
             StartCoroutine(WaitForTimer());
-        
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            EnemySpawnManager.instance.SpawnEnemy();
+        }
+
         if(chrono == 0)
         {
             GameOver();
@@ -62,14 +65,15 @@ public class GameManager : MonoBehaviour
         {
             gameIsOn = true;
             PlateauManager.ResetMap();
+            ItemSpawn.instance.ResetBottle();
+            TableauAtoBSystem.instance.ResetPlateau();
+            EnemySpawnManager.instance.ResetEnemy();
+            EnemySpawnManager.instance.killEnemyObjectif = false;
+
             chrono = memoryChrono;
 
-            int tableau = Random.Range(0, 3);
+            int tableau = Random.Range(0, 1);
             //Debug.Log("RANDOM =" + tableau);
-
-            Vector3 pos = new Vector3(0, 0, 0);
-            int x = 0;
-            int y = 0;
 
             player.transform.position = PlateauManager.plateau[positionPlayerX, positionPlayerY];
             player.GetComponent<Player>().playerPositionX = positionPlayerX;
@@ -82,16 +86,12 @@ public class GameManager : MonoBehaviour
             else if (tableau == 1)
             {
                 ItemSpawn.instance.SpawnAnItem();
+                ItemSpawn.instance.tableauIsOn = true;
             }
             else if (tableau == 2)
             {
-                while(pos == new Vector3(positionPlayerX, positionPlayerY, 0) || PlateauManager.itemInPlateau[x, y] == true || pos == new Vector3(positionPlayerX, y, 0) || pos == new Vector3(x, positionPlayerY, 0))
-                {
-                    x = Random.Range(0, taillePlateau);
-                    y = Random.Range(0, taillePlateau);
-                    pos = new Vector3(x, y, 0);
-                }
-                Instantiate(enemy, pos, Quaternion.identity);
+                EnemySpawnManager.instance.SpawnEnemy();
+                EnemySpawnManager.instance.killEnemyObjectif = true;
             }
         }
     }

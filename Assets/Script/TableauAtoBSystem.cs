@@ -30,7 +30,7 @@ public class TableauAtoBSystem : MonoBehaviour
     }
 
 
-    private void SpawnAnItem()
+    public void SpawnAnItem()
     {
         int voidCase = 0;
 

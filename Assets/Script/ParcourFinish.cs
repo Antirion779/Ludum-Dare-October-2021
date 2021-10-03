@@ -9,7 +9,6 @@ public class ParcourFinish : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            TableauAtoBSystem.instance.ResetPlateau();
             GameManager.instance.gameIsOn = false;
         }
     }
