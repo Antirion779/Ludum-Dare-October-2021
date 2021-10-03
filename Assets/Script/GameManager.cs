@@ -50,10 +50,10 @@ public class GameManager : MonoBehaviour
         if(!nextSecond)
             StartCoroutine(WaitForTimer());
 
-        if (Input.GetKeyDown(KeyCode.U))
+        /*if (Input.GetKeyDown(KeyCode.U))
         {
             EnemySpawnManager.instance.SpawnEnemy();
-        }
+        }*/
 
         if(chrono == 0)
         {
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
             chrono = memoryChrono;
 
-            int tableau = Random.Range(0, 1);
+            int tableau = Random.Range(0, 3);
             //Debug.Log("RANDOM =" + tableau);
 
             player.transform.position = PlateauManager.plateau[positionPlayerX, positionPlayerY];
