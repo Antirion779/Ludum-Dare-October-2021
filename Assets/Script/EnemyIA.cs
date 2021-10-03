@@ -14,6 +14,7 @@ public class EnemyIA : MonoBehaviour
     void Start()
     {
        StartCoroutine(WaitAction(GameManager.tempsDeReaction));
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     IEnumerator WaitAction(float a)
@@ -60,34 +61,40 @@ public class EnemyIA : MonoBehaviour
         {
             if (diffY > 0) //le monte d'une case
             {
-                float movePosY = transform.position.y + 1;
-                transform.position = new Vector2(transform.position.x, movePosY);
-                Debug.Log("UP");
+                if (transform.position.y != GameManager.taillePlateau - 1)
+                {
+                    transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y + 1];
+                    Debug.Log("UP");
+                }
             }
-
-
             else //Le baisse d'une case
             {
-                float movePosY = transform.position.y - 1;
-                transform.position = new Vector2(transform.position.x, movePosY);
-                Debug.Log("Down");
+                if (transform.position.y != 0)
+                {
+                    transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y - 1];
+                    Debug.Log("Down");
+                }
             }
         }
 
         else//sinon on le bouge sur X
         {
-            if (diffY > 0)//droite d'une case
+            if (diffX > 0)//droite d'une case
             {
-                float movePosX = transform.position.x + 1;
-                transform.position = new Vector2(movePosX, transform.position.y);
-                Debug.Log("Droite");
+                if(transform.position.x != GameManager.taillePlateau - 1)
+                {
+                    transform.position = PlateauManager.plateau[(int)transform.position.x +1, (int)transform.position.y];
+                    Debug.Log("Droite");
+                }
             }
 
             else//Gauche d'une case
             {
-                float movePosX = transform.position.x - 1;
-                transform.position = new Vector2(movePosX, transform.position.y);
-                Debug.Log("Gauche");
+                if (transform.position.x != 0)
+                {
+                    transform.position = PlateauManager.plateau[(int)transform.position.x - 1, (int)transform.position.y];
+                    Debug.Log("Gauche");
+                }
             }
         }
 

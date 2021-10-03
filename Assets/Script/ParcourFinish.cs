@@ -10,6 +10,7 @@ public class ParcourFinish : MonoBehaviour
         {
             Destroy(gameObject);
             TableauAtoBSystem.instance.ResetPlateau();
+            GameManager.instance.gameIsOn = false;
         }
     }
 }

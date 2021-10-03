@@ -18,19 +18,9 @@ public class TableauAtoBSystem : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-
-        ActivateGame();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            ActivateGame();
-        }
-    }
-
-    private void ActivateGame()
+    public void ActivateGame()
     {
         Instantiate(itemFinish, new Vector3(GameManager.taillePlateau - 1, GameManager.taillePlateau - 1, 0), Quaternion.identity);
         for (int i = 0; i < 100; i++)
@@ -83,7 +73,5 @@ public class TableauAtoBSystem : MonoBehaviour
         {
             Destroy(voidcase);
         }
-
-        PlateauManager.ResetMap();
     }
 }

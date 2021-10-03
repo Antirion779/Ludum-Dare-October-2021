@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(ItemSpawn))]
-public class ItemSpawnManager : Editor
+//[CustomEditor(typeof(ItemSpawn))]
+public class ItemSpawnManager : MonoBehaviour
+//Editor
 {
-    public override void OnInspectorGUI()
+    /*public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
@@ -15,5 +16,5 @@ public class ItemSpawnManager : Editor
         {
             myScript.SpawnAnItem();
         }
-    }
+    }*/
 }

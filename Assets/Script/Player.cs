@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Transform playerPosition;
-    float playerPositionX;
-    float playerPositionY;
+    public float playerPositionX;
+    public float playerPositionY;
     
 
     KeyCode keyUp = KeyCode.Z;
@@ -22,9 +22,8 @@ public class Player : MonoBehaviour
         playerPosition = this.transform;
 
         //Set Pos default player
-        playerPosition.position = PlateauManager.plateau[GameManager.positionPlayerX, GameManager.positionPlayerY];
-        playerPositionX = playerPosition.position.x;
-        playerPositionY = playerPosition.position.y;
+        playerPositionX = GameManager.positionPlayerX;
+        playerPositionY = GameManager.positionPlayerY;
     }
 
     void Update()

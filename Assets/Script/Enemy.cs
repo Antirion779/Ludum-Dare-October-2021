@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
 	{
 		//Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
+		GameManager.instance.gameIsOn = false;
 	}
 
 }
