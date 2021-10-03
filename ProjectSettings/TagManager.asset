@@ -8,6 +8,7 @@ TagManager:
   - FallCase
   - Enemy
   - EnemyBall
+  - Cross
   layers:
   - Default
   - TransparentFX

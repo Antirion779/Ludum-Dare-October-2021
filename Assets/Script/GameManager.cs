@@ -50,11 +50,6 @@ public class GameManager : MonoBehaviour
         if(!nextSecond)
             StartCoroutine(WaitForTimer());
 
-        /*if (Input.GetKeyDown(KeyCode.U))
-        {
-            EnemySpawnManager.instance.SpawnEnemy();
-        }*/
-
         if(chrono == 0)
         {
             GameOver();
@@ -69,10 +64,11 @@ public class GameManager : MonoBehaviour
             TableauAtoBSystem.instance.ResetPlateau();
             EnemySpawnManager.instance.ResetEnemy();
             EnemySpawnManager.instance.killEnemyObjectif = false;
+            FallGameManager.instance.isVictory = false;
 
             chrono = memoryChrono;
 
-            int tableau = Random.Range(0, 3);
+            int tableau = Random.Range(0, 4);
             //Debug.Log("RANDOM =" + tableau);
 
             player.transform.position = PlateauManager.plateau[positionPlayerX, positionPlayerY];
@@ -92,6 +88,11 @@ public class GameManager : MonoBehaviour
             {
                 EnemySpawnManager.instance.SpawnEnemy();
                 EnemySpawnManager.instance.killEnemyObjectif = true;
+            }
+            else if(tableau == 3)
+            {
+                FallGameManager.instance.SpawnGoodCase();
+                FallGameManager.instance.isVictory = true;
             }
         }
     }
