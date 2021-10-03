@@ -39,6 +39,7 @@ public class EnemySpawnManager : MonoBehaviour
         if (killEnemyObjectif)
         {
             GameManager.instance.gameIsOn = false;
+            GameManager.score++;
         }
     }
 

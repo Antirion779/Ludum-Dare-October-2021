@@ -10,6 +10,8 @@ public class ParcourFinish : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.instance.gameIsOn = false;
+            GameManager.score++;
+            //Debug.Log(GameManager.score);
         }
     }
 }

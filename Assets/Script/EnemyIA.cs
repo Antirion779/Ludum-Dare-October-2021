@@ -81,7 +81,7 @@ public class EnemyIA : MonoBehaviour
                 if (transform.position.y != GameManager.taillePlateau - 1)
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y + 1];
-                    Debug.Log("UP");
+                    //Debug.Log("UP");
                     
                     
                     transform.eulerAngles = new Vector3(0, 0, 90);
@@ -94,7 +94,7 @@ public class EnemyIA : MonoBehaviour
                 if (transform.position.y != 0)
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x, (int)transform.position.y - 1];
-                    Debug.Log("Down");
+                    //Debug.Log("Down");
                     
                     
                     transform.eulerAngles = new Vector3(0, 0, -90);
@@ -111,7 +111,7 @@ public class EnemyIA : MonoBehaviour
                 if(transform.position.x != GameManager.taillePlateau - 1)
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x +1, (int)transform.position.y];
-                    Debug.Log("Droite");
+                    //Debug.Log("Droite");
                     
                     
                     transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -124,7 +124,7 @@ public class EnemyIA : MonoBehaviour
                 if (transform.position.x != 0)
                 {
                     transform.position = PlateauManager.plateau[(int)transform.position.x - 1, (int)transform.position.y];
-                    Debug.Log("Gauche");
+                    //Debug.Log("Gauche");
                     
                     
                     transform.rotation = new Quaternion(0, 0, 180, 0);
