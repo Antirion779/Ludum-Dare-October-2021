@@ -40,12 +40,19 @@ public class FallGameManager : MonoBehaviour
             crossCase = GameObject.FindGameObjectsWithTag("Cross");
             foreach (GameObject cross in crossCase)
             {
-                if(cross.transform.position == player.transform.position)
+                if(player != null)
                 {
-                    Destroy(player);
+                    if(cross.transform.position == player.transform.position)
+                    {
+                        Destroy(player);
+                        isDie = true;
+                    }
+                    Destroy(cross);
+                }
+                else
+                {
                     isDie = true;
                 }
-                Destroy(cross);
             }
 
             if(isVictory && !isDie)
@@ -103,6 +110,15 @@ public class FallGameManager : MonoBehaviour
                 cross.transform.localScale = new Vector3(cross.transform.localScale.x + 0.8f/ diviseur, cross.transform.localScale.y + 0.8f / diviseur, cross.transform.localScale.z + 0.8f / diviseur);
             }
             nextSecond = true;
+        }
+    }
+
+    public void ResetExplosion()
+    {
+        crossCase = GameObject.FindGameObjectsWithTag("Cross");
+        foreach (GameObject cross in crossCase)
+        {
+            Destroy(cross);
         }
     }
 }
