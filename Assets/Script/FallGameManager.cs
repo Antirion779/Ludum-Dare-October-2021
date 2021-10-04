@@ -17,10 +17,13 @@ public class FallGameManager : MonoBehaviour
     private bool nextSecond;
     private int diviseur = 100;
     private bool isDie;
+    private bool boum;
 
     public bool isVictory;
 
     private GameObject[] crossCase;
+
+    public CameraShake CameraShakes;
 
     private void Start()
     {
@@ -49,6 +52,7 @@ public class FallGameManager : MonoBehaviour
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                         isDie = true;
                     }
+
                     Destroy(cross);
                 }
                 else
@@ -57,7 +61,13 @@ public class FallGameManager : MonoBehaviour
                 }
             }
 
-            if(isVictory && !isDie)
+            if (boum)
+            {
+                boum = false;
+                StartCoroutine(CameraShakes.Shake(0.3f, 1.0f));
+            }
+
+            if (isVictory && !isDie)
                 GameManager.instance.gameIsOn = false;
         }
     }
@@ -96,6 +106,7 @@ public class FallGameManager : MonoBehaviour
         chrono = GameManager.fallSpeed;
         memoryChrono = chrono / diviseur;
         nextSecond = true;
+        boum = true;
     }
 
     private IEnumerator WaitForTimer()
