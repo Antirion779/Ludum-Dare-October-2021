@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Jean-Michel/Menu.unity
     guid: 653479bb77d9c5e46bdd7be2c81793b2
   - enabled: 1
-    path: Assets/Arthur/SceneArthur.unity
-    guid: 154ae0326790f404a8229eed13a68946
+    path: Assets/Arthur/SceneArthurV2.unity
+    guid: 3af1837f31c9f2246908357d3904ce64
   m_configObjects: {}

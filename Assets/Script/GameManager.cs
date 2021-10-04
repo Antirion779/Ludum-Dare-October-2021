@@ -83,20 +83,20 @@ public class GameManager : MonoBehaviour
 
             if (score > 15)
             {
-                modifier1 = Random.Range(0, 4);
+                modifier1 = Random.Range(0, 6);
                 while (modifier1 == tableau)
                 {
-                    modifier1 = Random.Range(0, 4);
+                    modifier1 = Random.Range(0, 6);
                 }
 
             }
 
             if (score > 30)
             {
-                modifier2 = Random.Range(0, 4);
+                modifier2 = Random.Range(0, 6);
                 while (modifier2 == tableau || modifier2 == modifier1)
                 {
-                    modifier2 = Random.Range(0, 3);
+                    modifier2 = Random.Range(0, 6);
                 }
             }
             //Debug.Log("RANDOM =" + tableau);
@@ -143,6 +143,10 @@ public class GameManager : MonoBehaviour
                     FallGameManager.instance.isVictory = true;
                     objectifText.text = "Survive";
                 }
+            }
+            if(modifier1 == 5 || modifier2 == 5)
+            {
+
             }
         }
     }
