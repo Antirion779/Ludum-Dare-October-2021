@@ -153,6 +153,9 @@ public class GameManager : MonoBehaviour
             {
                 speedModifier = 0.5f;
                 tempsDeReaction = 0.5f;
+            if(modifier1 == 5 || modifier2 == 5)
+            {
+
             }
         }
     }
