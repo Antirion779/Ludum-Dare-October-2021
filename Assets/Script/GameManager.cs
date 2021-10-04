@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,15 @@ public class GameManager : MonoBehaviour
     public static int positionPlayerX = 0;
     public static int positionPlayerY = 0;
 
-    [Header("Enemy")] public static float tempsDeReaction = 1;
+    [Header("Enemy")] 
+    public static float tempsDeReaction = 1;
 
     [SerializeField]
     GameObject player;
 
     [SerializeField]
     Text chronoText;
+    Text scoreText;
     [SerializeField]
     GameObject panelGameOver;
 
@@ -27,6 +30,10 @@ public class GameManager : MonoBehaviour
     private int chrono;
     private int memoryChrono;
     private bool nextSecond;
+
+    [SerializeField] private Text objectifText;
+
+    public static int score;
 
     public bool gameIsOn;
 
@@ -50,11 +57,6 @@ public class GameManager : MonoBehaviour
         if(!nextSecond)
             StartCoroutine(WaitForTimer());
 
-        /*if (Input.GetKeyDown(KeyCode.U))
-        {
-            EnemySpawnManager.instance.SpawnEnemy();
-        }*/
-
         if(chrono == 0)
         {
             GameOver();
@@ -68,32 +70,79 @@ public class GameManager : MonoBehaviour
             ItemSpawn.instance.ResetBottle();
             TableauAtoBSystem.instance.ResetPlateau();
             EnemySpawnManager.instance.ResetEnemy();
-            EnemySpawnManager.instance.killEnemyObjectif = false;
             EnemySpawnManager.instance.ResetBullet();
-            EnemySpawnManager.instance.ResetEnemyBall();
+            EnemySpawnManager.instance.killEnemyObjectif = false;
+            FallGameManager.instance.isVictory = false;
+            FallGameManager.instance.ResetExplosion();
 
             chrono = memoryChrono;
 
-            int tableau = Random.Range(0, 3);
+            int tableau = Random.Range(3, 4);
+            int modifier1 = 100;
+            int modifier2 = 200;
+
+            if (score > -1)
+            {
+                modifier1 = Random.Range(2, 3);
+                while (modifier1 == tableau)
+                {
+                    modifier1 = Random.Range(0, 4);
+                }
+
+            }
+
+            if (score > 30)
+            {
+                modifier2 = Random.Range(0, 4);
+                while (modifier2 == tableau || modifier2 == modifier1)
+                {
+                    modifier2 = Random.Range(0, 3);
+                }
+            }
             //Debug.Log("RANDOM =" + tableau);
 
             player.transform.position = PlateauManager.plateau[positionPlayerX, positionPlayerY];
             player.GetComponent<Player>().playerPositionX = positionPlayerX;
             player.GetComponent<Player>().playerPositionY = positionPlayerY;
 
-            if (tableau == 0)
+            Debug.Log("Tableau : " + tableau + " ; " + "Modifier1 : " + modifier1 + " ; " + "Modifier2 : " + modifier2);
+
+            //Debug.Log("score : " + score);
+            if (tableau == 0 || modifier1 == 0 || modifier2 == 0)//trou
             {
-                TableauAtoBSystem.instance.ActivateGame();
+                 TableauAtoBSystem.instance.ActivateGame();
+                 if (tableau == 0)
+                 {
+                     TableauAtoBSystem.instance.ActiveVictory();
+                     objectifText.text = "Reach the flag";
+                 }
             }
-            else if (tableau == 1)
+            if (tableau == 1 || modifier1 == 1 || modifier2 == 1)//bouteille
             {
-                ItemSpawn.instance.SpawnAnItem();
-                ItemSpawn.instance.tableauIsOn = true;
+                 ItemSpawn.instance.SpawnAnItem();
+                 if (tableau == 1)
+                 {
+                     ItemSpawn.instance.tableauIsOn = true;
+                    objectifText.text = "Collect all the bottles";
+                 }
             }
-            else if (tableau == 2)
+            if (tableau == 2 || modifier1 == 2 || modifier2 == 2)//Enemie
             {
-                EnemySpawnManager.instance.SpawnEnemy();
-                EnemySpawnManager.instance.killEnemyObjectif = true;
+                 EnemySpawnManager.instance.SpawnEnemy();
+                 if (tableau == 2)
+                 {
+                     EnemySpawnManager.instance.killEnemyObjectif = true;
+                    objectifText.text = "Kill the enemies";
+                 }
+            }
+            if(tableau == 3 || modifier1 == 3 || modifier2 == 3)//fall thing
+            {
+                FallGameManager.instance.SpawnGoodCase();
+                if (tableau == 3)
+                {
+                    FallGameManager.instance.isVictory = true;
+                    objectifText.text = "Survive";
+                }
             }
         }
     }
