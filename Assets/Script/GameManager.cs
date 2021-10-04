@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     GameObject decor1; 
     [SerializeField]
     GameObject decor2;
+    [SerializeField]
+    GameObject decor3;
 
     [SerializeField]
     Text chronoText;
@@ -101,16 +103,24 @@ public class GameManager : MonoBehaviour
                     modifier1 = Random.Range(0, 6);
                 }
 
-                int chooseDecor = Random.Range(0, 2);
+                int chooseDecor = Random.Range(0, 3);
                 if(chooseDecor == 0)
                 {
                     decor1.SetActive(true);
                     decor2.SetActive(false);
+                    decor3.SetActive(false);
+                }
+                else if (chooseDecor == 1)
+                {
+                    decor1.SetActive(false);
+                    decor2.SetActive(true);
+                    decor3.SetActive(false);
                 }
                 else
                 {
                     decor1.SetActive(false);
-                    decor2.SetActive(true);
+                    decor2.SetActive(false);
+                    decor3.SetActive(true);
                 }
             }
 
