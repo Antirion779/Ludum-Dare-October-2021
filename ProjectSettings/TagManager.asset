@@ -10,6 +10,7 @@ TagManager:
   - EnemyBall
   - Cross
   - Bullet
+  - Music
   layers:
   - Default
   - TransparentFX

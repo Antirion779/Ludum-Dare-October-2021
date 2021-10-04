@@ -356,6 +356,7 @@ MonoBehaviour:
   chronoText: {fileID: 2137943158}
   panelGameOver: {fileID: 1831781477}
   chrono: 20
+  objectifText: {fileID: 0}
   gameIsOn: 0
 --- !u!1 &487743990
 GameObject:
@@ -795,7 +796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1094523965
 Transform:
   m_ObjectHideFlags: 0

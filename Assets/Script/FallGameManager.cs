@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FallGameManager : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class FallGameManager : MonoBehaviour
                     if(cross.transform.position == player.transform.position)
                     {
                         Destroy(player);
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                         isDie = true;
                     }
                     Destroy(cross);
