@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 73d0c70e4f75707468bfe395013c67f3
+guid: 9688fa33dd876c543977210b952d32f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5990339533517595354
-    second: PlayerDownF_0
+      213: -1780074629542346579
+    second: "SpriteFant\xF4meC\xF4t\xE9_0"
   - first:
-      213: 4360841909506431957
-    second: PlayerDownF_0
+      213: 9118518137704571890
+    second: "SpriteFant\xF4meC\xF4t\xE9_1"
   - first:
-      213: -5419694694666790635
-    second: PlayerDownF_2
+      213: 8205086245530937433
+    second: "SpriteFant\xF4meC\xF4t\xE9_1"
   - first:
-      213: -1915013066519583791
-    second: PlayerDownF_2
+      213: -8989103700011265003
+    second: "SpriteFant\xF4meC\xF4t\xE9_3"
   - first:
-      213: 1745712073061627663
-    second: PlayerDownF_1
+      213: 2848357184878478269
+    second: "SpriteFant\xF4meC\xF4t\xE9_2"
   - first:
-      213: 8969858982850505577
-    second: PlayerDownF_4
+      213: 7683804402304441253
+    second: "SpriteFant\xF4meC\xF4t\xE9_5"
   - first:
-      213: 8158514796195225301
-    second: PlayerDownF_6
+      213: 6051486706508627690
+    second: "SpriteFant\xF4meC\xF4t\xE9_6"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,148 +112,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerDownF_0
+      name: "SpriteFant\xF4meC\xF4t\xE9_0"
       rect:
         serializedVersion: 2
-        x: 3
-        y: 216
-        width: 119
-        height: 92
+        x: 2
+        y: 255
+        width: 104
+        height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2ab4b4116f12350800000000000000
-      internalID: 5990339533517595354
+      spriteID: da081704e87eb47e0800000000000000
+      internalID: -1780074629542346579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_1
+      name: "SpriteFant\xF4meC\xF4t\xE9_1"
       rect:
         serializedVersion: 2
-        x: 125
-        y: 215
-        width: 116
-        height: 92
+        x: 116
+        y: 256
+        width: 103
+        height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db54c9ac92d48c30800000000000000
-      internalID: 4360841909506431957
+      spriteID: 2f366db2feb7b8e70800000000000000
+      internalID: 9118518137704571890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_2
+      name: "SpriteFant\xF4meC\xF4t\xE9_2"
       rect:
         serializedVersion: 2
-        x: 244
-        y: 214
-        width: 114
-        height: 93
+        x: 229
+        y: 257
+        width: 104
+        height: 116
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5191155d36069c4b0800000000000000
-      internalID: -5419694694666790635
+      spriteID: 958a058c7725ed170800000000000000
+      internalID: 8205086245530937433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_5
+      name: "SpriteFant\xF4meC\xF4t\xE9_3"
       rect:
         serializedVersion: 2
-        x: 251
-        y: 113
-        width: 121
-        height: 92
+        x: 1
+        y: 131
+        width: 105
+        height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d36edd13c18c65e0800000000000000
-      internalID: -1915013066519583791
+      spriteID: 514dda7afc9404380800000000000000
+      internalID: -8989103700011265003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_3
+      name: "SpriteFant\xF4meC\xF4t\xE9_4"
       rect:
         serializedVersion: 2
-        x: 3
-        y: 113
-        width: 121
-        height: 92
+        x: 115
+        y: 130
+        width: 104
+        height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f07f2fa91e30a3810800000000000000
-      internalID: 1745712073061627663
+      spriteID: db30d16b4c5678720800000000000000
+      internalID: 2848357184878478269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_4
+      name: "SpriteFant\xF4meC\xF4t\xE9_5"
       rect:
         serializedVersion: 2
-        x: 127
-        y: 112
-        width: 121
-        height: 93
+        x: 229
+        y: 130
+        width: 105
+        height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96ba62678375b7c70800000000000000
-      internalID: 8969858982850505577
+      spriteID: 5ab50f2b46b52aa60800000000000000
+      internalID: 7683804402304441253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDownF_6
+      name: "SpriteFant\xF4meC\xF4t\xE9_6"
       rect:
         serializedVersion: 2
-        x: 3
-        y: 11
-        width: 119
-        height: 92
+        x: 1
+        y: 7
+        width: 104
+        height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de1cf14bfdd83170800000000000000
-      internalID: 8158514796195225301
+      spriteID: aeef170f8133bf350800000000000000
+      internalID: 6051486706508627690
       vertices: []
       indices: 
       edges: []

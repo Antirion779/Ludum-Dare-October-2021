@@ -9,7 +9,8 @@ public class EnemyIA : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-
+    private SpriteRenderer spriteDeSesMorts;
+    private Animator animatorDeSesMorts;
 
 
 
@@ -26,8 +27,8 @@ public class EnemyIA : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
 
-        
-
+        spriteDeSesMorts = gameObject.GetComponent<SpriteRenderer>();
+        animatorDeSesMorts = gameObject.GetComponent<Animator>();
 
     }
 
@@ -86,6 +87,13 @@ public class EnemyIA : MonoBehaviour
                     
                     transform.eulerAngles = new Vector3(0, 0, 90);
 
+
+                    spriteDeSesMorts.flipX = false;
+                    spriteDeSesMorts.flipY = true;
+                    animatorDeSesMorts.SetBool("goesUp", true);
+                    animatorDeSesMorts.SetBool("goesDown", false);
+                    animatorDeSesMorts.SetBool("goesSide", false);
+
                 }
                 
             }
@@ -98,6 +106,13 @@ public class EnemyIA : MonoBehaviour
                     
                     
                     transform.eulerAngles = new Vector3(0, 0, -90);
+
+
+                    spriteDeSesMorts.flipX = true;
+                    spriteDeSesMorts.flipY = true;
+                    animatorDeSesMorts.SetBool("goesUp", false);
+                    animatorDeSesMorts.SetBool("goesDown", true);
+                    animatorDeSesMorts.SetBool("goesSide", false);
 
                 }
                 
@@ -115,6 +130,13 @@ public class EnemyIA : MonoBehaviour
                     
                     
                     transform.rotation = new Quaternion(0, 0, 0, 0);
+
+
+                    spriteDeSesMorts.flipX = true;
+                    spriteDeSesMorts.flipY = false;
+                    animatorDeSesMorts.SetBool("goesUp", false);
+                    animatorDeSesMorts.SetBool("goesDown", false);
+                    animatorDeSesMorts.SetBool("goesSide", true);
                 }
                 
             }
@@ -128,6 +150,13 @@ public class EnemyIA : MonoBehaviour
                     
                     
                     transform.rotation = new Quaternion(0, 0, 180, 0);
+
+
+                    spriteDeSesMorts.flipX = true;
+                    spriteDeSesMorts.flipY = true;
+                    animatorDeSesMorts.SetBool("goesUp", false);
+                    animatorDeSesMorts.SetBool("goesDown", false);
+                    animatorDeSesMorts.SetBool("goesSide", true);
                 }
                 
             }
@@ -140,18 +169,42 @@ public class EnemyIA : MonoBehaviour
         if (player.transform.position.x - transform.position.x < 0)
         {
             transform.rotation = new Quaternion(0, 0, 180, 0);
+
+            spriteDeSesMorts.flipX = true;
+            spriteDeSesMorts.flipY = true;
+            animatorDeSesMorts.SetBool("goesUp", false);
+            animatorDeSesMorts.SetBool("goesDown", false);
+            animatorDeSesMorts.SetBool("goesSide", true);
         }
         else if (player.transform.position.x - transform.position.x > 0)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
+
+            spriteDeSesMorts.flipX = true;
+            spriteDeSesMorts.flipY = false;
+            animatorDeSesMorts.SetBool("goesUp", false);
+            animatorDeSesMorts.SetBool("goesDown", false);
+            animatorDeSesMorts.SetBool("goesSide", true);
         }
         else if (player.transform.position.y - transform.position.y < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, -90);
+
+            spriteDeSesMorts.flipX = true;
+            spriteDeSesMorts.flipY = true;
+            animatorDeSesMorts.SetBool("goesUp", false);
+            animatorDeSesMorts.SetBool("goesDown", true);
+            animatorDeSesMorts.SetBool("goesSide", false);
         }
         else if (player.transform.position.y - transform.position.y > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 90);
+
+            spriteDeSesMorts.flipX = false;
+            spriteDeSesMorts.flipY = true;
+            animatorDeSesMorts.SetBool("goesUp", true);
+            animatorDeSesMorts.SetBool("goesDown", false);
+            animatorDeSesMorts.SetBool("goesSide", false);
         }
     }
 }
