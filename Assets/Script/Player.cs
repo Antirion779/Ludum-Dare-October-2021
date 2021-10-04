@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -114,14 +115,14 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             GameObject Enemybahhhh = GameObject.FindGameObjectWithTag("Enemy");
             Destroy(Enemybahhhh);
-            //LOAD LA SCENE DE MORT DU PERSONNAGE
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         if (collision.CompareTag("EnemyBall"))
         {
             Destroy(gameObject);
             GameObject Enemybahhhh = GameObject.FindGameObjectWithTag("Enemy");
             Destroy(Enemybahhhh);
-            //LOAD LA SCENE DE MORT DU PERSONNAGE
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
