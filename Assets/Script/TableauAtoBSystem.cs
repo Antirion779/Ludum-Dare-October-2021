@@ -20,9 +20,13 @@ public class TableauAtoBSystem : MonoBehaviour
             instance = this;
     }
 
-    public void ActivateGame()
+    public void ActiveVictory()
     {
         Instantiate(itemFinish, new Vector3(GameManager.taillePlateau - 1, GameManager.taillePlateau - 1, 0), Quaternion.identity);
+    }
+
+    public void ActivateGame()
+    {
         for (int i = 0; i < 100; i++)
         {
             SpawnAnItem();

@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     Transform playerPosition;
     public float playerPositionX;
     public float playerPositionY;
-    
+
+    private SpriteRenderer spriteDeSesMorts;
+    private Animator animatorDeSesMorts;
+
 
     KeyCode keyUp = KeyCode.Z;
     KeyCode keyDown = KeyCode.S;
@@ -24,6 +27,9 @@ public class Player : MonoBehaviour
         //Set Pos default player
         playerPositionX = GameManager.positionPlayerX;
         playerPositionY = GameManager.positionPlayerY;
+
+        spriteDeSesMorts = gameObject.GetComponent<SpriteRenderer>();
+        animatorDeSesMorts = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -35,6 +41,11 @@ public class Player : MonoBehaviour
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY + 1];
                 playerPositionY++;
                 playerPosition.eulerAngles = new Vector3(0, 0, 90);
+                spriteDeSesMorts.flipX = false;
+                spriteDeSesMorts.flipY = true;
+                animatorDeSesMorts.SetBool("goesUp", true);
+                animatorDeSesMorts.SetBool("goesDown", false);
+                animatorDeSesMorts.SetBool("goesSide", false);
             }
         }
         else if (Input.GetKeyDown(keyDown))
@@ -44,6 +55,11 @@ public class Player : MonoBehaviour
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX, (int)playerPositionY - 1];
                 playerPositionY--;
                 playerPosition.eulerAngles = new Vector3(0, 0, -90);
+                spriteDeSesMorts.flipX = true;
+                spriteDeSesMorts.flipY = true;
+                animatorDeSesMorts.SetBool("goesUp", false);
+                animatorDeSesMorts.SetBool("goesDown", true);
+                animatorDeSesMorts.SetBool("goesSide", false);
             }
         }
         else if (Input.GetKeyDown(keyLeft))
@@ -53,28 +69,38 @@ public class Player : MonoBehaviour
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX - 1, (int)playerPositionY];
                 playerPositionX--;
                 playerPosition.rotation = new Quaternion(0, 0, 180, 0);
+                spriteDeSesMorts.flipX = true;
+                spriteDeSesMorts.flipY = true;
+                animatorDeSesMorts.SetBool("goesUp", false);
+                animatorDeSesMorts.SetBool("goesDown", false);
+                animatorDeSesMorts.SetBool("goesSide", true);
             }
         }
         else if (Input.GetKeyDown(keyRight))
         {
-            if(playerPositionX != GameManager.taillePlateau - 1)
+            if (playerPositionX != GameManager.taillePlateau - 1)
             {
                 playerPosition.position = PlateauManager.plateau[(int)playerPositionX + 1, (int)playerPositionY];
                 playerPositionX++;
                 playerPosition.rotation = new Quaternion(0, 0, 0, 0);
+                spriteDeSesMorts.flipX = true;
+                spriteDeSesMorts.flipY = false;
+                animatorDeSesMorts.SetBool("goesUp", false);
+                animatorDeSesMorts.SetBool("goesDown", false);
+                animatorDeSesMorts.SetBool("goesSide", true);
             }
         }
     }
 
     public void SwitchAzertyQuerty()
     {
-        if(keyUp == KeyCode.W)
+        if (keyUp == KeyCode.W)
         {
             textButtonKeyboard.text = "Azerty";
             keyUp = KeyCode.Z;
             keyLeft = KeyCode.Q;
         }
-        else if(keyUp == KeyCode.Z)
+        else if (keyUp == KeyCode.Z)
         {
             textButtonKeyboard.text = "Querty";
             keyUp = KeyCode.W;

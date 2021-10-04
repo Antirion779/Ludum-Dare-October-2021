@@ -34,7 +34,9 @@ public class ItemSpawn : MonoBehaviour
             currentItemPickedUp = 0;
             tableauIsOn = false;
             GameManager.instance.gameIsOn = false;
+            GameManager.score++;
         }
+        //Debug.Log(currentItemPickedUp + " / " + numberOfItem);
     }
 
     public void SpawnAnItem()
@@ -70,6 +72,7 @@ public class ItemSpawn : MonoBehaviour
         foreach (GameObject item in bottle)
         {
             Destroy(item);
+            currentItemPickedUp = 0;
         }
     }
 }
