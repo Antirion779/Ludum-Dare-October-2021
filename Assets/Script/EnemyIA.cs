@@ -12,7 +12,7 @@ public class EnemyIA : MonoBehaviour
     private SpriteRenderer spriteDeSesMorts;
     private Animator animatorDeSesMorts;
 
-
+    public AudioSource audioSource;
 
     [Header("Component")] 
     [SerializeField] private GameObject player;
@@ -60,6 +60,7 @@ public class EnemyIA : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        audioSource.Play();
 
         isInLine = false;
         StartCoroutine(WaitAction(GameManager.tempsDeReaction));

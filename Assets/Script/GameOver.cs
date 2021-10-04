@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    public AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource.Play();
+    }
+
     public void LoadMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);

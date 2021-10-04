@@ -21,6 +21,8 @@ public class FallGameManager : MonoBehaviour
 
     public bool isVictory;
 
+    public AudioSource audioSource;
+
     private GameObject[] crossCase;
 
     public CameraShake CameraShakes;
@@ -64,6 +66,7 @@ public class FallGameManager : MonoBehaviour
             if (boum)
             {
                 boum = false;
+                audioSource.Play();
                 StartCoroutine(CameraShakes.Shake(0.3f, 1.0f));
             }
 

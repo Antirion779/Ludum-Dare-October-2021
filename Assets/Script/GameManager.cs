@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject player;
+    
+    [SerializeField]
+    GameObject decor1; 
+    [SerializeField]
+    GameObject decor2;
 
     [SerializeField]
     Text chronoText;
@@ -94,6 +99,18 @@ public class GameManager : MonoBehaviour
                 while (modifier1 == tableau)
                 {
                     modifier1 = Random.Range(0, 6);
+                }
+
+                int chooseDecor = Random.Range(0, 2);
+                if(chooseDecor == 0)
+                {
+                    decor1.SetActive(true);
+                    decor2.SetActive(false);
+                }
+                else
+                {
+                    decor1.SetActive(false);
+                    decor2.SetActive(true);
                 }
             }
 

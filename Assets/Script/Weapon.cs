@@ -7,12 +7,15 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    public AudioSource audioSource;
+
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             shoot();
+            audioSource.Play();
         }
     }
 
