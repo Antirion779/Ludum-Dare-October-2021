@@ -93,7 +93,7 @@ public class FallGameManager : MonoBehaviour
             }
         }
 
-        chrono = 3;
+        chrono = GameManager.fallSpeed;
         memoryChrono = chrono / diviseur;
         nextSecond = true;
     }

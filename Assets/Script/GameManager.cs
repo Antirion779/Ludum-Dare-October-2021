@@ -17,22 +17,25 @@ public class GameManager : MonoBehaviour
     [Header("Enemy")] 
     public static float tempsDeReaction = 1;
 
+    public static float fallSpeed = 3;
+
     [SerializeField]
     GameObject player;
 
     [SerializeField]
     Text chronoText;
-    Text scoreText;
 
     [Header("Variable")]
     [SerializeField] 
     private int chrono;
     private int memoryChrono;
     private bool nextSecond;
+    private float speedModifier;
 
     [SerializeField] private Text objectifText;
 
     public static int score;
+
 
     public bool gameIsOn;
 
@@ -74,6 +77,10 @@ public class GameManager : MonoBehaviour
             FallGameManager.instance.isVictory = false;
             FallGameManager.instance.ResetExplosion();
 
+            speedModifier = 1;
+            tempsDeReaction = 1;
+            fallSpeed = 3;
+
             chrono = memoryChrono;
 
             int tableau = Random.Range(0, 4);
@@ -82,20 +89,19 @@ public class GameManager : MonoBehaviour
 
             if (score > 15)
             {
-                modifier1 = Random.Range(0, 4);
+                modifier1 = Random.Range(0, 6);
                 while (modifier1 == tableau)
                 {
-                    modifier1 = Random.Range(0, 4);
+                    modifier1 = Random.Range(0, 6);
                 }
-
             }
 
             if (score > 30)
             {
-                modifier2 = Random.Range(0, 4);
+                modifier2 = Random.Range(0, 6);
                 while (modifier2 == tableau || modifier2 == modifier1)
                 {
-                    modifier2 = Random.Range(0, 3);
+                    modifier2 = Random.Range(0, 6);
                 }
             }
             //Debug.Log("RANDOM =" + tableau);
@@ -143,6 +149,11 @@ public class GameManager : MonoBehaviour
                     objectifText.text = "Survive";
                 }
             }
+            if (modifier1 == 4 || modifier2 == 4)
+            {
+                speedModifier = 0.5f;
+                tempsDeReaction = 0.5f;
+            }
         }
     }
 
@@ -151,7 +162,7 @@ public class GameManager : MonoBehaviour
         if(chrono != 0)
         {
             nextSecond = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(speedModifier);
             chrono--;
             nextSecond = false;
         }
