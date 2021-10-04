@@ -5,16 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private string mainMenu;
-    [SerializeField] private string restart;
-
     public void LoadMenu()
     {
-        SceneManager.LoadScene(mainMenu);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
     public void LoadRestart()
     {
-        SceneManager.LoadScene(restart);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

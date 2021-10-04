@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,8 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text chronoText;
     Text scoreText;
-    [SerializeField]
-    GameObject panelGameOver;
 
     [Header("Variable")]
     [SerializeField] 
@@ -47,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        panelGameOver.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Update()
