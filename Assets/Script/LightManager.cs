@@ -13,10 +13,7 @@ public class LightManager : MonoBehaviour
     private GameObject gameLight;    
     [SerializeField]
     private GameObject playerLight;    
-    [SerializeField]
-    private GameObject enemyLight;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (instance == null)
@@ -25,7 +22,6 @@ public class LightManager : MonoBehaviour
         globalLight.GetComponent<Light2D>().enabled = true;
         gameLight.GetComponent<Light2D>().enabled = false;
         playerLight.GetComponent<Light2D>().enabled = false;
-        enemyLight.GetComponent<Light2D>().enabled = false;
     }
 
     public void VariationLight()
@@ -33,7 +29,6 @@ public class LightManager : MonoBehaviour
         globalLight.GetComponent<Light2D>().enabled = false;
         gameLight.GetComponent<Light2D>().enabled = true;
         playerLight.GetComponent<Light2D>().enabled = true;
-        enemyLight.GetComponent<Light2D>().enabled = true;
     }
     
     public void ResetLight()
@@ -41,6 +36,11 @@ public class LightManager : MonoBehaviour
         globalLight.GetComponent<Light2D>().enabled = true;
         gameLight.GetComponent<Light2D>().enabled = false;
         playerLight.GetComponent<Light2D>().enabled = false;
-        enemyLight.GetComponent<Light2D>().enabled = false;
+    }
+
+    public void ActivateEnemyLight()
+    {
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemy.GetComponent<Light2D>().enabled = true;
     }
 }

@@ -582,7 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalLight: {fileID: 1643928091}
   gameLight: {fileID: 1457075602}
-  playerLight: {fileID: 0}
+  playerLight: {fileID: 1517032970}
   enemyLight: {fileID: 0}
 --- !u!1 &765284088
 GameObject:

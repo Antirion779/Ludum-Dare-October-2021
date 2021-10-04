@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
             EnemySpawnManager.instance.killEnemyObjectif = false;
             FallGameManager.instance.isVictory = false;
             FallGameManager.instance.ResetExplosion();
+            LightManager.instance.ResetLight();
 
             speedModifier = 1;
             tempsDeReaction = 1;
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
             int modifier1 = 100;
             int modifier2 = 200;
 
-            if (score > 15)
+            if (score > 10)
             {
                 modifier1 = Random.Range(0, 6);
                 while (modifier1 == tableau)
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (score > 30)
+            if (score > 20)
             {
                 modifier2 = Random.Range(0, 6);
                 while (modifier2 == tableau || modifier2 == modifier1)
@@ -156,7 +157,12 @@ public class GameManager : MonoBehaviour
             }
             if (modifier1 == 5 || modifier2 == 5)
             {
+                LightManager.instance.VariationLight();
 
+                if(tableau == 2)
+                {
+                    LightManager.instance.ActivateEnemyLight();
+                }
             }
         }
     }
