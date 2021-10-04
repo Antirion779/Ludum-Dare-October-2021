@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Antoine/GameOver.unity
     guid: ba43751bcfd79424bbb02fad18423723
-  - enabled: 1
-    path: Assets/Antoine/SceneAntoineLast.unity
-    guid: 4f756276c105a65439decfb4dfaa3bc4
   m_configObjects: {}

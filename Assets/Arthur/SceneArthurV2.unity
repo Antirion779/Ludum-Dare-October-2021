@@ -529,7 +529,7 @@ MonoBehaviour:
   decor1: {fileID: 942549135870287260}
   decor2: {fileID: 7620409862262282268}
   chronoText: {fileID: 2137943158}
-  chrono: 20
+  chrono: 10
   objectifText: {fileID: 1111982228}
   gameIsOn: 0
 --- !u!1 &487743990

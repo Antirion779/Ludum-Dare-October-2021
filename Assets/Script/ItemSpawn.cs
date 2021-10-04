@@ -72,7 +72,7 @@ public class ItemSpawn : MonoBehaviour
         foreach (GameObject item in bottle)
         {
             Destroy(item);
-            currentItemPickedUp = 0;
         }
+        currentItemPickedUp = 0;
     }
 }
