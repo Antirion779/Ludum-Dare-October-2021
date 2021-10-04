@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
             EnemySpawnManager.instance.ResetBullet();
             EnemySpawnManager.instance.killEnemyObjectif = false;
             FallGameManager.instance.isVictory = false;
+            FallGameManager.instance.ResetExplosion();
 
             chrono = memoryChrono;
 
