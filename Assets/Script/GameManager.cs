@@ -77,13 +77,13 @@ public class GameManager : MonoBehaviour
 
             chrono = memoryChrono;
 
-            int tableau = Random.Range(3, 4);
+            int tableau = Random.Range(0, 4);
             int modifier1 = 100;
             int modifier2 = 200;
 
             if (score > -1)
             {
-                modifier1 = Random.Range(2, 3);
+                modifier1 = Random.Range(0, 3);
                 while (modifier1 == tableau)
                 {
                     modifier1 = Random.Range(0, 4);
