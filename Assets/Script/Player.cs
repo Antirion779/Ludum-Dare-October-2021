@@ -14,13 +14,6 @@ public class Player : MonoBehaviour
     private Animator animatorDeSesMorts;
 
 
-    KeyCode keyUp = KeyCode.Z;
-    KeyCode keyDown = KeyCode.S;
-    KeyCode keyRight = KeyCode.D;
-    KeyCode keyLeft = KeyCode.Q;
-    [SerializeField]
-    Text textButtonKeyboard;
-
     private void Start()
     {
         playerPosition = this.transform;
@@ -35,7 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyUp))
+        if (Input.GetKeyDown(KeyboardManager.keyUp))
         {
             if (playerPositionY != GameManager.taillePlateau - 1)
             {
@@ -49,7 +42,7 @@ public class Player : MonoBehaviour
                 animatorDeSesMorts.SetBool("goesSide", false);
             }
         }
-        else if (Input.GetKeyDown(keyDown))
+        else if (Input.GetKeyDown(KeyboardManager.keyDown))
         {
             if (playerPositionY != 0)
             {
@@ -63,7 +56,7 @@ public class Player : MonoBehaviour
                 animatorDeSesMorts.SetBool("goesSide", false);
             }
         }
-        else if (Input.GetKeyDown(keyLeft))
+        else if (Input.GetKeyDown(KeyboardManager.keyLeft))
         {
             if (playerPositionX != 0)
             {
@@ -77,7 +70,7 @@ public class Player : MonoBehaviour
                 animatorDeSesMorts.SetBool("goesSide", true);
             }
         }
-        else if (Input.GetKeyDown(keyRight))
+        else if (Input.GetKeyDown(KeyboardManager.keyRight))
         {
             if (playerPositionX != GameManager.taillePlateau - 1)
             {
@@ -93,21 +86,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SwitchAzertyQuerty()
-    {
-        if (keyUp == KeyCode.W)
-        {
-            textButtonKeyboard.text = "Azerty";
-            keyUp = KeyCode.Z;
-            keyLeft = KeyCode.Q;
-        }
-        else if (keyUp == KeyCode.Z)
-        {
-            textButtonKeyboard.text = "Querty";
-            keyUp = KeyCode.W;
-            keyLeft = KeyCode.A;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
