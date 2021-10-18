@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [Header("Enemy")] 
     public static float tempsDeReaction = 1;
 
-    public static float fallSpeed = 3;
+    public static float fallSpeed = 2;
 
     [SerializeField]
     GameObject player;
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         chronoText.text = chrono.ToString();
         
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
             speedModifier = 1;
             tempsDeReaction = 1;
-            fallSpeed = 3;
+            fallSpeed = 2;
 
             chrono = memoryChrono;
 

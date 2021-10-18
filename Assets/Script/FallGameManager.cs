@@ -33,7 +33,7 @@ public class FallGameManager : MonoBehaviour
             instance = this;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (nextSecond && chrono > 0)
         {
